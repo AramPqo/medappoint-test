@@ -1,0 +1,650 @@
+@import 'bootstrap-variables';
+@import '~bootstrap/scss/functions';
+@import '~bootswatch/dist/flatly/variables';
+@import '~bootstrap/scss/variables';
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Open-Sans';
+    src: url('./../fonts/Open-Sans.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Open-Sans Bold';
+    src: url('./../fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+/* ==============================================================
+Bootstrap tweaks
+===============================================================*/
+
+* {
+    :focus {
+        outline: -webkit-focus-ring-color auto 0px;
+    }
+}
+body,
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+a:hover {
+    /* make sure browsers use the pointer cursor for anchors, even with no href */
+    cursor: pointer;
+}
+
+.flex-0 {
+    flex:0 !important;
+}
+
+.dropdown-item:hover {
+    color: $dropdown-link-hover-color;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+button:focus {
+   outline: none; 
+}
+
+// input.ng-invalid.ng-untouched,
+// textarea.ng-invalid.ng-untouched  {
+//     border-color:#c9c9c9;
+// }
+
+.ng-invalid:not(form) {
+    background-image: url('./../images/input-field-error.png') !important;
+    background-size: 20px 20px !important;
+    border-color:  #AB0000 !important;
+    background-repeat: no-repeat !important;
+    background-position: right 5px center;
+}
+
+.dropdown-invalid {
+    border-color: #AB0000 !important;
+    &::after {
+        color: #AB0000 !important;
+    }
+}
+
+textarea.ng-invalid.ng-untouched {
+    background-position: right 5px top 5px !important;
+}
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.delete-dialog-container,
+.save-entity-content,
+.patient-control-modal-footer,
+.entity-from-modal-footer {
+    border-top: 1px solid #c4cbd4;
+    width: 100%;
+    padding:0 15px;
+        button {
+        padding: 5px 10px;
+        border: 1px solid #009abb;
+        border-radius: 4px;
+        box-sizing: content-box;
+        color: #009abb;
+        font-weight: 600;
+        transition: 0.2s;
+        min-width: 80px;
+        height: 38px;
+        background-color: #ffffff;
+        font-family: 'Roboto';
+        font-size: 16px;
+        text-align: center;
+        margin: 10px 5px;
+        &:hover {
+            background-color:#6c757d !important;
+            color:#ffffff !important;
+            border-color: #009abb !important;
+        }
+    }
+   
+    .save {
+        background-color: #009abb;
+        color: #ffffff;
+    }
+}
+
+/* ==========================================================================
+Generic styles
+========================================================================== */
+
+
+/* other generic styles */
+
+.jh-card {
+    padding: 20px;
+    border: none;
+}
+
+.error {
+    color: white;
+    background-color: red;
+}
+
+.pad {
+    padding: 10px;
+}
+
+.w-40 {
+    width: 40% !important;
+}
+
+.w-60 {
+    width: 60% !important;
+}
+
+.break {
+    white-space: normal;
+    word-break: break-all;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+.readonly {
+    background-color: #eee;
+    opacity: 1;
+}
+
+.footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.hand,
+[jhisortby] {
+    cursor: pointer;
+}
+
+
+/* ==========================================================================
+Custom alerts for notification
+========================================================================== */
+
+.alerts {
+    position: relative;
+    z-index: 999999; 
+    > div {
+        position: absolute;
+        width: 100%;
+    }
+    .alert {
+        text-overflow: ellipsis;
+        pre {
+            background: none;
+            border: none;
+            font: inherit;
+            color: inherit;
+            padding: 0;
+            margin: 0;
+        }
+        .popover pre {
+            font-size: 10px;
+        }
+    }
+    .jhi-toast {
+        position: fixed;
+        width: 100%;
+        &.left {
+            left: 5px;
+        }
+        &.right {
+            right: 5px;
+        }
+        &.top {
+            top: 55px;
+        }
+        &.bottom {
+            bottom: 55px;
+        }
+    }
+}
+
+.main-container {
+    margin-left: 80px;
+    width: calc(100% - 90px);
+    height: calc(100vh - 68px);
+    overflow-x: hidden;
+}
+
+
+
+/* ==========================================================================
+entity detail page css
+========================================================================== */
+
+.row.jh-entity-details> {
+    dd {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* ==========================================================================
+ui bootstrap tweaks
+========================================================================== */
+
+.hidden {
+    visibility: hidden;
+}
+
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}
+
+.thread-dump-modal-lock {
+    max-width: 450px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// global
+.filter-content {
+    height: 100%;
+}
+
+.form-group {
+    label {
+        text-transform: capitalize;
+    }
+}
+
+.blocker-date {
+    .date-value {
+        top: 68px !important;
+    }
+}
+
+.form-control.filter-control {
+    border-color: #ced4da;
+    height: 100%;
+    border-radius: 0;
+    margin:0;
+    padding: 12px 6px;
+    &:focus{
+      box-shadow: none !important;  
+    }
+}
+
+.ui-link {
+    color: #18BC9C;
+    &:hover {
+        color: #0f7864;
+    text-decoration: underline;
+    }
+}
+
+.event-none {
+    cursor: not-allowed !important;
+    pointer-events: none;
+}
+
+img.disabled {
+    cursor: not-allowed !important;
+    opacity: 0.45 !important;
+}
+
+.color-picker {
+    position: relative;
+    display: block;
+    width: 105px;
+    height: 46px;
+    border: 1px solid #c9c9c9;
+    cursor: pointer;
+    &::after {
+        content: "";
+        display: inline-block;
+        margin-left: 0.255em;
+        border-top: 0.4em solid;
+        border-right: 0.4em solid transparent;
+        border-bottom: 0;
+        border-left: 0.4em solid transparent;
+        position: absolute;
+        right: 5px;
+        top: 20px;
+        cursor: pointer;
+        color: #46555d;
+    }
+    input {
+        pointer-events: none !important;
+        width: 38px;
+        height: 40px;
+        border: none;
+        position: absolute;
+        left: 5px;
+        top: 3px;
+        padding: 0;
+    }
+}
+
+/* jhipster-needle-scss-add-main JHipster will add new css style */
+
+.calendar-backdrop {
+    border: 5px solid #fff;
+    top: 160px !important;
+    height: 78vh !important;
+    left: 99px !important;
+    width: 93% !important;
+}
+.calendar-control-dialog {
+    right: 7px;
+    left: auto;
+    width: 450px;
+    top: 135px;
+    .modal-body {
+        height: 70vh;
+        margin-bottom: 75px;
+        overflow-y: auto !important;
+        overflow: hidden;
+    }
+}
+
+button.close {
+    &:focus {
+        outline: 0px !important;
+    }
+}
+
+// form-control
+
+
+// boootsrap overrides
+
+.left-bar-tooltip {
+    opacity: 1 !important;
+    .arrow {
+        margin-left: -10px;
+        &::before {
+            border-right-color:#f0f4f5 !important;
+        }
+    }
+    .tooltip-inner {
+        width: 100px !important;
+        margin-left: -10px;
+        border-radius: 2px;
+        font-size: 12px;
+        background-color: #f0f4f5;
+        color: #46555d;
+        box-shadow:0px 1px 5px rgb(51 52 53 / 33%);
+        padding: 2px 10px;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+  
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7F7F7F;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.switcher-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 55%;
+    .button-switch {
+        font-size: 14px;
+        height: 1.875em;
+        margin-bottom: 0.625em;
+        position: relative;
+        width: 80px;
+        margin: 0;
+        order: 1;
+    }
+    .button-switch .lbl-off,
+    .button-switch .lbl-on {
+        cursor: pointer;
+        display: block;
+        font-size: 14px;
+        line-height: 1em;
+        color: #47565d;
+        position: absolute;
+        top: 6px;
+        transition: opacity 0.25s ease-out 0.1s;
+        margin: 0;
+    }
+    .button-switch .lbl-off {
+      right:7px
+    }
+    .button-switch .lbl-on {
+      opacity: 0;
+      order:1;
+      left: 5px;
+      font-size: 14px
+    }
+    .button-switch .switch {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+        height: 0;
+        font-size: 14px;
+        right: 0;
+        line-height: 0;
+        outline: none;
+        position: absolute;
+        top: 0;
+        width: 0;
+    }
+    .button-switch .switch:before,
+    .button-switch .switch:after {
+      content: "";
+      font-size: 14px;
+      position: absolute;
+    }
+    .button-switch .switch:before {
+        border-radius: 0.25em;
+        background: #cccccc;
+        height: 1.5em;
+        right: 0;
+        top: -0.1875em;
+        transition: background-color 0.25s ease-out 0.1s;
+        width: 6em;
+    }
+    .button-switch .switch:after {
+        border-radius: 0.1em;
+        background: #fefefe;
+        height: 19px;
+        transform: translate(0, 0);
+        transition: transform 0.25s ease-out 0.1s;
+        width: 1em;
+        right: 68px;
+        top: -2px;
+    }
+    .button-switch .switch:checked:after {
+        transform: translate(calc(6.7em - 2em), 0)
+    }
+    .button-switch .switch:checked ~ .lbl-off {
+      opacity: 0;
+    }
+    .button-switch .switch:checked ~ .lbl-on {
+      opacity: 1;
+      color: white;
+    }
+    .button-switch .switch.input-switch:checked:before {
+      background: #47565d;
+    }
+}
+
+
+@media screen and (max-width: 1430px) {
+    .calendar-backdrop {
+       width: 91% !important;
+    }
+}
+
+@media screen and (max-width: 1111px) {
+    .calendar-backdrop {
+       width: 88% !important;
+       left: 85px !important;
+    }
+}
+
+@media screen and (max-height: 2540px) {
+    .calendar-control-dialog .modal-body {
+        height: 66vh;
+    }
+}
+  
+@media screen and (max-height: 1680px) {
+    .calendar-control-dialog .modal-body {
+        height: 61vh;
+    }
+}
+  
+  
+@media screen and (max-height: 1110px) {
+    .calendar-control-dialog .modal-body {
+        height: 55vh;
+    }
+}
+  
+@media screen and (max-height: 930px) {
+    .calendar-control-dialog .modal-body {
+        height: 51vh;
+    }
+}
+
+@media screen and (max-height: 780px) {
+    .calendar-control-dialog .modal-body {
+        height: 46vh;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .row.jh-entity-details> {
+        dt {
+            margin-bottom: 15px;
+        }
+        dd {
+            border-bottom: 1px solid #eee;
+            padding-left: 180px;
+            margin-left: 0;
+        }
+    }
+}
+
+
+@media screen and (max-width: 630px) {
+// MAIN
+    body {
+        overflow: hidden;
+    }
+    
+    .navbar {
+        padding: 0 !important;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 999;
+    }
+
+    .main-container {
+        margin-left: 0px !important;
+        width: 100% !important;
+        height: 100vh;
+        margin-top: 68px;
+        overflow: hidden;
+    }
+
+    .jh-card {
+        padding: 10px;
+    }
+// MAIN
+    .calendar-control-dialog {
+        height: calc(100vh - 65px);
+        .modal-dialog {
+            max-width: 100% !important;
+            width: 100% !important;
+            margin: 0  !important;
+        }
+        .modal-body.pad {
+            height: 100% !important;
+        }
+        right: 0  !important; 
+        left: 0  !important;
+        width: 100%  !important;
+        top: 66px  !important;
+    }
+
+    .calendar-backdrop {
+        top: 277px !important;
+        left: 0  !important;
+        width: 97% im !important;
+     }
+
+
+    // need to change
+     .businnes-container-temporary {
+        height: calc(100vh - 80px);
+        overflow: auto;
+        overflow-x: hidden;
+        .switcher-container {
+            width: 95%;
+        }
+        .save-entity-content {
+            display: flex;
+            flex-direction: column;
+            .cancel {
+                order:2;
+            }
+            .save {
+                order:1;
+            }
+        }
+     }
+}
+
+
+@media screen and (min-width: 480px) {
+    .alerts .jhi-toast {
+        width: 50%;
+    }
+}
+
+// Need to change
+body {
+    overflow: hidden;
+}
+// Need to change
